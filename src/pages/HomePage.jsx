@@ -4,6 +4,7 @@ import FeaturedListings from '../components/home/FeaturedListings.jsx';
 import Testimonials from '../components/home/Testimonials.jsx';
 import NewsletterSection from '../components/home/NewsletterSection';
 import { useEffect } from 'react';
+import HotelsNearMeMap from '../components/common/HotelsNearMeMap.jsx';
 
 const HomePage = () => {
 
@@ -15,9 +16,11 @@ const HomePage = () => {
     <div>
       <Hero />
       <Categories />
+      <HotelsNearMeMap />
       <FeaturedListings />
       <Testimonials />
-      <NewsletterSection/>
+      <NewsletterSection />
+
     </div>
   );
 };

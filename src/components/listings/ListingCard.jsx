@@ -1,25 +1,31 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaStar, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useAuth } from '../../contexts/AuthContext.jsx';
+import { toggleFavorite } from '../../data/users.js';
 
 const ListingCard = ({ listing }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { currentUser } = useAuth();
 
+  useEffect(() => {
+    if (currentUser && currentUser.favorites) {
+      setIsFavorite(currentUser.favorites.includes(listing.id));
+    }
+  }, [currentUser, listing.id]);
+
   const handleFavoriteClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
     
     if (!currentUser) {
-      // Show a message or redirect to login
       alert('Please log in to save favorites');
       return;
     }
     
+    const newFavorites = toggleFavorite(currentUser.id, listing.id);
     setIsFavorite(!isFavorite);
-    // In a real app, this would call an API to save/remove favorite
   };
 
   const nextImage = (e) => {

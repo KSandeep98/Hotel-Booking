@@ -166,5 +166,119 @@ export const listings = [
     guests: 5,
     type: "Entire townhouse",
     isFeatured: false
+  },
+  {
+    id: 201,
+    title: "Heritage Hotel Aurangabad",
+    description: "Experience royal hospitality at this heritage hotel with spacious rooms, garden views, and traditional decor.",
+    location: "Aurangabad, Maharashtra",
+    price: 2200,
+    rating: 4.6,
+    reviewCount: 132,
+    images: [
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/261104/pexels-photo-261104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    host: {
+      name: "Aurangabad Hospitality",
+      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.8,
+      superhost: true
+    },
+    amenities: ["WiFi", "Pool", "Restaurant", "Parking", "Spa", "Conference Room"],
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    guests: 2,
+    type: "Hotel Room",
+    isFeatured: true,
+    latitude: 19.8762,
+    longitude: 75.3433
+  },
+  {
+    id: 202,
+    title: "Cozy Stay Near Ajanta Caves",
+    description: "Comfortable and affordable rooms with easy access to Ajanta Caves, ideal for travelers and explorers.",
+    location: "Aurangabad, Maharashtra",
+    price: 850,
+    rating: 4.2,
+    reviewCount: 47,
+    images: [
+      "https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/271742/pexels-photo-271742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    host: {
+      name: "Local Host",
+      image: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.4,
+      superhost: false
+    },
+    amenities: ["WiFi", "Air Conditioning", "Free Parking"],
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    guests: 2,
+    type: "Private Room",
+    isFeatured: false,
+    latitude: 19.5500,
+    longitude: 75.7000
+  },
+  {
+    id: 203,
+    title: "Luxury Resort with Garden View",
+    description: "A premium resort offering luxury rooms, beautiful gardens, pool, and fine dining experience near Aurangabad.",
+    location: "Aurangabad, Maharashtra",
+    price: 3200,
+    rating: 4.9,
+    reviewCount: 210,
+    images: [
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/261104/pexels-photo-261104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    host: {
+      name: "Aurangabad Resorts",
+      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.9,
+      superhost: true
+    },
+    amenities: ["WiFi", "Pool", "Spa", "Restaurant", "Bar", "Gym", "Parking"],
+    bedrooms: 2,
+    beds: 2,
+    bathrooms: 2,
+    guests: 4,
+    type: "Entire Resort",
+    isFeatured: true,
+    latitude: 19.8750,
+    longitude: 75.3400
+  },
+  {
+    id: 204,
+    title: "Comfort Inn Aurangabad",
+    description: "A well-maintained inn with modern amenities and close proximity to city attractions.",
+    location: "Aurangabad, Maharashtra",
+    price: 1400,
+    rating: 4.3,
+    reviewCount: 80,
+    images: [
+      "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/271638/pexels-photo-271638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    host: {
+      name: "Comfort Stay",
+      image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.5,
+      superhost: false
+    },
+    amenities: ["WiFi", "Breakfast", "Air Conditioning", "Parking"],
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    guests: 2,
+    type: "Hotel Room",
+    isFeatured: false,
+    latitude: 19.8800,
+    longitude: 75.3500
   }
-];
+]

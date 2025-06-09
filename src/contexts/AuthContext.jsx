@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from 'react';
+import { initializeUsers, getUsers, addUser, updateUser } from '../data/users';
 
 const AuthContext = createContext(null);
 
@@ -9,34 +10,56 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for user in localStorage on initial load
-    const user = localStorage.getItem('user');
-    if (user) {
-      setCurrentUser(JSON.parse(user));
+    // Initialize users if not exists
+    initializeUsers();
+    
+    // Check for logged in user in localStorage
+    const loggedInUser = localStorage.getItem('currentUser');
+    if (loggedInUser) {
+      const user = getUsers().find(u => u.id === JSON.parse(loggedInUser).id);
+      setCurrentUser(user);
     }
     setLoading(false);
-  }, []);
+  }, [localStorage.getItem('users')]);
 
-  // Login function
-  const login = (userData) => {
-    // In a real app, this would make an API call
-    localStorage.setItem('user', JSON.stringify(userData));
-    setCurrentUser(userData);
-    return true;
+  const login = (email, password) => {
+    const users = getUsers();
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      setCurrentUser(user);
+      return { success: true, user };
+    }
+    return { success: false, error: 'Invalid email or password' };
   };
 
-  // Logout function
+  const register = (userData) => {
+    const users = getUsers();
+    if (users.some(u => u.email === userData.email)) {
+      return { success: false, error: 'Email already exists' };
+    }
+    
+    const newUser = addUser(userData);
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    setCurrentUser(newUser);
+    return { success: true, user: newUser };
+  };
+
   const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
     setCurrentUser(null);
   };
 
-  // Register function
-  const register = (userData) => {
-    // In a real app, this would make an API call
-    localStorage.setItem('user', JSON.stringify(userData));
-    setCurrentUser(userData);
-    return true;
+  const updateProfile = (data) => {
+    if (!currentUser) return { success: false, error: 'No user logged in' };
+    
+    const updatedUser = updateUser(currentUser.id, data);
+    if (updatedUser) {
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+      setCurrentUser(updatedUser);
+      return { success: true, user: updatedUser };
+    }
+    return { success: false, error: 'Failed to update profile' };
   };
 
   const value = {
@@ -44,6 +67,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     register,
+    updateProfile,
     loading
   };
 

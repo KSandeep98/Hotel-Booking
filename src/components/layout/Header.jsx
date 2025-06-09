@@ -182,7 +182,7 @@ const Header = () => {
                     open={Boolean(anchorEl)}
                     onClose={handleProfileClose}
                   >
-                    <MenuItem component={Link} to="/profile" onClick={handleProfileClose}>
+                    <MenuItem component={Link} to="/profile" onClick={handleProfileClose} >
                       Profile
                     </MenuItem>
                     <MenuItem component={Link} to="/profile/bookings" onClick={handleProfileClose}>
